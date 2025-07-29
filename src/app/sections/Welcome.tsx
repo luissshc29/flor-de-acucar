@@ -29,7 +29,7 @@ const carouselScreens = [
   {
     id: 2,
     text: "COOKIES GIGANTES, SABOR ABSURDO!",
-    image: "/images/background/welcome/welcome-2.jpg",
+    image: "/images/background/welcome/welcome-5.jpg",
     alt: "Welcome section background image 2",
     animation: "lines",
   },
