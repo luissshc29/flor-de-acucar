@@ -113,7 +113,7 @@ export default function Welcome() {
       <Carousel
         id="welcome"
         className="relative flex justify-center items-center text-center"
-        style={{ height: "100dvh", width: "100vw" }}
+        style={{ height: "100vh", width: "100vw" }}
         plugins={[
           Autoplay({
             delay: 10000,

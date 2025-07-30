@@ -88,7 +88,7 @@ export default function Essence() {
   return (
     <div
       id="essence"
-      className="flex lg:flex-row flex-col items-center gap-y-8 p-8 w-screen min-h-[100dvh]"
+      className="flex lg:flex-row flex-col items-center gap-y-8 p-8 w-screen min-h-[100vh]"
     >
       <div className="w-full lg:w-1/2">
         <div

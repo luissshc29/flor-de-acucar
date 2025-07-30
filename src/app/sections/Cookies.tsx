@@ -78,7 +78,7 @@ export default function Cookies() {
   }, []);
 
   return (
-    <div className="p-8 w-screen min-h-[100dvh]" id="cookies">
+    <div className="p-8 w-screen min-h-[100vh]" id="cookies">
       <div className="flex flex-col justify-center items-center gap-12 mx-auto">
         <div
           id="cookies-section-text-container"

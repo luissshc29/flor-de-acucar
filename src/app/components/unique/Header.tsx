@@ -32,7 +32,7 @@ export default function Header({ inView }: { inView: boolean }) {
     <div
       style={{
         position: isFixed ? "fixed" : "absolute",
-        top: isFixed ? 0 : "calc(10dvh + 32px)",
+        top: isFixed ? 0 : "calc(10vh + 32px)",
         left: 0,
         width: "100%",
         zIndex: 50,
@@ -43,7 +43,7 @@ export default function Header({ inView }: { inView: boolean }) {
           : "var(--color-background-soft)",
         boxShadow: !inView ? "0 4px 6px rgba(0,0,0,0.1)" : "none",
       }}
-      className="flex justify-between items-center px-8 py-4 rounded-b-md min-h-[10dvh]"
+      className="flex justify-between items-center px-8 py-4 rounded-b-md min-h-[10vh]"
     >
       {/* Uncomment if the Logo is preferred */}
       {/* <Link

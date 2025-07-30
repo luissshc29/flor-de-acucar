@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <div className="px-8 py-16 w-screen min-h-[100dvh]" id="contact">
+    <div className="px-8 py-16 w-screen min-h-[100vh]" id="contact">
       <p
         id="contact-section-p-1"
         className="font-text text-primary-medium text-sm md:text-base text-center tracking-[.5em]"
