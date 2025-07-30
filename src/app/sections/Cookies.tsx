@@ -82,7 +82,7 @@ export default function Cookies() {
       <div className="flex flex-col justify-center items-center gap-12 mx-auto">
         <div
           id="cookies-section-text-container"
-          className="flex flex-col justify-center items-center gap-2 mx-auto w-4/5 md:w-3/5 text-center"
+          className="flex flex-col justify-center items-center gap-2 mx-auto w-4/5 lg:w-3/5 text-center"
         >
           <p
             id="cookies-section-p-1"

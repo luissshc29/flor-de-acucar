@@ -2,7 +2,11 @@ export type Cookie = {
   id: number;
   name: string;
   description: string;
-  weight: number[];
+  weight: {
+    id: number;
+    grams: number;
+    price: number;
+  }[];
   images: string[];
 };
 
@@ -12,7 +16,23 @@ export const cookies: Cookie[] = [
     name: "OREO",
     description:
       "Um mergulho cremoso no sabor do Oreo, envolto em uma massa de chocolate feita pra derreter na boca.",
-    weight: [40, 80, 120],
+    weight: [
+      {
+        id: 1,
+        grams: 40,
+        price: 1.0,
+      },
+      {
+        id: 2,
+        grams: 80,
+        price: 2.0,
+      },
+      {
+        id: 3,
+        grams: 120,
+        price: 3.0,
+      },
+    ],
     images: [
       "/images/cookies/transparent/oreo.png",
       "/images/cookies/transparent/oreo-aberto.png",
@@ -23,7 +43,23 @@ export const cookies: Cookie[] = [
     name: "RED VELVET",
     description:
       "Vermelho intenso, recheio branco cremoso e um sabor que é puro carinho em forma de cookie.",
-    weight: [40, 80, 120],
+    weight: [
+      {
+        id: 1,
+        grams: 40,
+        price: 1.0,
+      },
+      {
+        id: 2,
+        grams: 80,
+        price: 2.0,
+      },
+      {
+        id: 3,
+        grams: 120,
+        price: 3.0,
+      },
+    ],
     images: [
       "/images/cookies/transparent/redvelvet.png",
       "/images/cookies/transparent/redvelvet-aberto.png",
@@ -31,13 +67,29 @@ export const cookies: Cookie[] = [
   },
   {
     id: 3,
-    name: "DOCE DE LEITE",
+    name: "BRIGADEIRO AO LEITE",
     description:
-      "Macio por fora, absurdamente cremoso por dentro. Esse de doce de leite é um abraço açucarado.",
-    weight: [40, 80, 120],
+      "Macio por fora, absurdamente cremoso por dentro. Esse de brigadeiro ao leite é um abraço açucarado.",
+    weight: [
+      {
+        id: 1,
+        grams: 40,
+        price: 1.0,
+      },
+      {
+        id: 2,
+        grams: 80,
+        price: 2.0,
+      },
+      {
+        id: 3,
+        grams: 120,
+        price: 3.0,
+      },
+    ],
     images: [
-      "/images/cookies/transparent/doce-de-leite.png",
-      "/images/cookies/transparent/doce-de-leite-aberto.png",
+      "/images/cookies/transparent/brigadeiro-ao-leite.png",
+      "/images/cookies/transparent/brigadeiro-ao-leite-aberto.png",
     ],
   },
   {
@@ -45,7 +97,23 @@ export const cookies: Cookie[] = [
     name: "MEIO AMARGO",
     description:
       "Sabor intenso, recheio cremoso e aquele amarguinho que faz toda a diferença.",
-    weight: [40, 80, 120],
+    weight: [
+      {
+        id: 1,
+        grams: 40,
+        price: 1.0,
+      },
+      {
+        id: 2,
+        grams: 80,
+        price: 2.0,
+      },
+      {
+        id: 3,
+        grams: 120,
+        price: 3.0,
+      },
+    ],
     images: [
       "/images/cookies/transparent/meio-amargo.png",
       "/images/cookies/transparent/meio-amargo-aberto.png",
@@ -56,7 +124,23 @@ export const cookies: Cookie[] = [
     name: "NINHO COM NUTELLA",
     description:
       "O combo dos sonhos: Nutella derretendo por dentro e Ninho cremoso por cima.",
-    weight: [40, 80, 120],
+    weight: [
+      {
+        id: 1,
+        grams: 40,
+        price: 1.0,
+      },
+      {
+        id: 2,
+        grams: 80,
+        price: 2.0,
+      },
+      {
+        id: 3,
+        grams: 120,
+        price: 3.0,
+      },
+    ],
     images: [
       "/images/cookies/transparent/ninho-com-nutella.png",
       "/images/cookies/transparent/ninho-com-nutella-aberto.png",

@@ -15,6 +15,8 @@ import { type CarouselApi } from "../shadcn/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
+import { useInView } from "react-intersection-observer";
+import Header from "../components/unique/Header";
 
 gsap.registerPlugin(SplitText);
 
@@ -94,82 +96,102 @@ export default function Welcome() {
     };
   }, [emblaApi]);
 
+  const [headerIsFixed, setHeaderIsFixed] = useState<boolean>(false);
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    setHeaderIsFixed(!inView);
+  }, [inView]);
+
   return (
-    <Carousel
-      id="welcome"
-      className="relative flex justify-center items-center text-center"
-      style={{ height: "100dvh", width: "100vw" }}
-      plugins={[
-        Autoplay({
-          delay: 10000,
-          stopOnInteraction: false,
-        }),
-      ]}
-      opts={{ loop: true }}
-      setApi={setEmblaApi}
+    <div
+      style={
+        headerIsFixed ? {} : { position: "relative", willChange: "contents" }
+      }
     >
-      <CarouselContent>
-        {carouselScreens.map((s) => (
-          <CarouselItem
-            key={s.id}
-            className="relative flex justify-center items-center w-screen h-screen"
-          >
-            <Image
-              src={s.image}
-              alt={s.alt}
-              fill
-              className="z-[-2] object-center object-cover"
-              priority
-            />
-
-            <div className="z-[-1] absolute inset-0 bg-black/20" />
-
-            <div
-              className="z-10 flex justify-center items-center w-screen text-white"
-              id="welcome-section-text"
+      <Header inView={inView} />
+      <Carousel
+        id="welcome"
+        className="relative flex justify-center items-center text-center"
+        style={{ height: "100dvh", width: "100vw" }}
+        plugins={[
+          Autoplay({
+            delay: 10000,
+            stopOnInteraction: false,
+          }),
+        ]}
+        opts={{ loop: true }}
+        setApi={setEmblaApi}
+        ref={ref}
+      >
+        <CarouselContent>
+          {carouselScreens.map((s) => (
+            <CarouselItem
+              key={s.id}
+              className="relative flex justify-center items-center w-screen h-screen"
             >
-              <div className="w-4/5 h-4/5 text-center">
-                <h1 className="font-text text-sm md:text-base tracking-[.5em]">
-                  FLOR DE AÇÚCAR
-                </h1>
-                <h2
-                  className="mt-4 mb-6 font-title font-bold text-4xl lg:text-6xl"
-                  ref={(el) => {
-                    if (el) {
-                      const split = new SplitText(el, { type: "lines" });
-                      gsap.from(split.lines, {
-                        y: 100,
-                        opacity: 0,
-                        stagger: 0.2,
-                        duration: 1,
-                        ease: "power3.out",
+              <Image
+                src={s.image}
+                alt={s.alt}
+                fill
+                className="z-[-2] object-center object-cover"
+                priority
+              />
+
+              <div className="z-[-1] absolute inset-0 bg-black/20" />
+
+              <div
+                className="z-10 flex justify-center items-center w-screen text-white"
+                id="welcome-section-text"
+              >
+                <div className="w-4/5 h-4/5 text-center">
+                  <h1 className="font-text text-sm md:text-base tracking-[.5em]">
+                    FLOR DE AÇÚCAR
+                  </h1>
+                  <h2
+                    className="mt-4 mb-6 font-title font-bold text-4xl lg:text-6xl"
+                    ref={(el) => {
+                      if (el) {
+                        const split = new SplitText(el, { type: "lines" });
+                        gsap.from(split.lines, {
+                          y: 100,
+                          opacity: 0,
+                          stagger: 0.2,
+                          duration: 1,
+                          ease: "power3.out",
+                        });
+                      }
+                    }}
+                  >
+                    {s.text}
+                  </h2>
+                  <p className="font-text text-sm md:text-lg">
+                    Quer saber mais?
+                  </p>
+                  <Button
+                    id="welcome-section-button"
+                    size="lg"
+                    className="gap-1 bg-background hover:bg-primary-light active:bg-primary-medium mt-8 px-8 md:px-12 py-6 rounded-3xl text-primary-deep text-sm md:text-base hover:cursor-pointer"
+                    onClick={() => {
+                      const el = document.getElementById("cookies");
+                      el?.scrollIntoView({
+                        block: "start",
+                        behavior: "smooth",
                       });
-                    }
-                  }}
-                >
-                  {s.text}
-                </h2>
-                <p className="font-text text-sm md:text-lg">Quer saber mais?</p>
-                <Button
-                  id="welcome-section-button"
-                  size="lg"
-                  className="gap-1 bg-background hover:bg-primary-light active:bg-primary-medium mt-8 px-8 md:px-12 py-6 rounded-3xl text-primary-deep text-sm md:text-base hover:cursor-pointer"
-                  onClick={() => {
-                    const el = document.getElementById("cookies");
-                    el?.scrollIntoView({ block: "start", behavior: "smooth" });
-                    if (window)
-                      window.history.pushState(null, "", `#${"cookies"}`);
-                  }}
-                >
-                  Ah, eu quero! <IoIosArrowDown />
-                </Button>
+                      if (window)
+                        window.history.pushState(null, "", `#${"cookies"}`);
+                    }}
+                  >
+                    Ah, eu quero! <IoIosArrowDown />
+                  </Button>
+                </div>
               </div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
   );
 }

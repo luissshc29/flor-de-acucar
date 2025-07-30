@@ -1,4 +1,4 @@
-import Header from "./components/unique/Header";
+import Contact from "./sections/Contact";
 import Cookies from "./sections/Cookies";
 import Essence from "./sections/Essence";
 import Welcome from "./sections/Welcome";
@@ -6,11 +6,11 @@ import Welcome from "./sections/Welcome";
 export default function Home() {
   return (
     <div className="relative animate-show-up">
-      <Header />
-      <div className="">
+      <div className="relative">
         <Welcome />
         <Essence />
         <Cookies />
+        <Contact />
       </div>
     </div>
   );

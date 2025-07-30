@@ -2,33 +2,48 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "./Navigation";
 import { RxInstagramLogo } from "react-icons/rx";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function Header() {
-  useLayoutEffect(() => {
-    // gsap.registerPlugin(ScrollTrigger);
-    // gsap.to("#header", {
-    //   position: "fixed",
-    //   backgroundColor: "rgba(255, 255, 255, 0.8)",
-    //   // filter: "blur(8px)",
-    //   scrollTrigger: {
-    //     trigger: "#essence",
-    //     markers: true,
-    //     start: "top 10%",
-    //     end: "bottom 10%",
-    //     scrub: true,
-    //   },
-    // });
-  }, []);
+export default function Header({ inView }: { inView: boolean }) {
+  const [isFixed, setIsFixed] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [bgTransparent, setBgTransparent] = useState(true);
+
+  useEffect(() => {
+    if (inView) {
+      setIsHidden(true);
+      setTimeout(() => {
+        setIsFixed(false);
+        setBgTransparent(true);
+      }, 500);
+    } else {
+      setIsFixed(true);
+      setBgTransparent(false);
+
+      setTimeout(() => {
+        setIsHidden(false);
+      }, 10);
+    }
+  }, [inView]);
 
   return (
     <div
-      className="top-0 left-0 z-50 absolute flex justify-between items-center px-8 py-4 rounded-b-md w-screen min-h-[10dvh] animate-content-down"
-      id="header"
+      style={{
+        position: isFixed ? "fixed" : "absolute",
+        top: isFixed ? 0 : "calc(10dvh + 32px)",
+        left: 0,
+        width: "100%",
+        zIndex: 50,
+        transform: isHidden ? "translateY(-100%)" : "translateY(0%)",
+        transition: "transform 0.5s ease-in-out",
+        background: bgTransparent
+          ? "transparent"
+          : "var(--color-background-soft)",
+        boxShadow: !inView ? "0 4px 6px rgba(0,0,0,0.1)" : "none",
+      }}
+      className="flex justify-between items-center px-8 py-4 rounded-b-md min-h-[10dvh]"
     >
       {/* Uncomment if the Logo is preferred */}
       {/* <Link
