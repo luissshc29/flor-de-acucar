@@ -149,10 +149,10 @@ html {
   background: transparent;
 }
 
-body {
-  max-width: 100vw;
+body,
+html {
+  width: 100vw;
   overflow-x: hidden;
-  overflow-y: overlay;
   scrollbar-gutter: stable;
   background: transparent;
 }
@@ -197,7 +197,7 @@ body {
   border-right: 0;
   border-style: solid;
   position: absolute;
-  border-color: var(--color-primary-deep);
+  /* border-color: var(--color-primary-deep); */
   bottom: -8px;
   width: 0%;
   transition: width 500ms;
@@ -209,6 +209,47 @@ body {
 
 .nav-button:hover svg {
   transform: translateX(10px);
+}
+
+/* .highlighted-price-card */
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spinBorder {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.highlighted-price-card {
+  position: relative;
+  z-index: 10;
+}
+
+.highlighted-price-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  scale: 1.02;
+  background-image: conic-gradient(
+    from var(--angle),
+    var(--color-secondary-soft),
+    white,
+    var(--color-secondary-soft),
+    white,
+    var(--color-secondary-soft)
+  );
+  z-index: -50;
+  animation: 13s spinBorder linear infinite;
+  @apply rounded-sm;
 }
 
 /* Keyframes */

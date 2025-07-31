@@ -30,7 +30,7 @@ export default function NavigationButton({
       {...rest}
     >
       {children}
-      <IoIosArrowForward className="text-primary-deep text-xl transition-transform duration-500" />
+      <IoIosArrowForward className="text-xl transition-transform duration-500" />
     </button>
   );
 }

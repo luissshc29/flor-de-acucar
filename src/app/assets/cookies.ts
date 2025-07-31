@@ -20,17 +20,17 @@ export const cookies: Cookie[] = [
       {
         id: 1,
         grams: 40,
-        price: 1.0,
+        price: 3.5,
       },
       {
         id: 2,
         grams: 80,
-        price: 2.0,
+        price: 7,
       },
       {
         id: 3,
         grams: 120,
-        price: 3.0,
+        price: 10,
       },
     ],
     images: [
@@ -47,17 +47,17 @@ export const cookies: Cookie[] = [
       {
         id: 1,
         grams: 40,
-        price: 1.0,
+        price: 3.5,
       },
       {
         id: 2,
         grams: 80,
-        price: 2.0,
+        price: 7,
       },
       {
         id: 3,
         grams: 120,
-        price: 3.0,
+        price: 10,
       },
     ],
     images: [
@@ -74,17 +74,17 @@ export const cookies: Cookie[] = [
       {
         id: 1,
         grams: 40,
-        price: 1.0,
+        price: 2.7,
       },
       {
         id: 2,
         grams: 80,
-        price: 2.0,
+        price: 5.5,
       },
       {
         id: 3,
         grams: 120,
-        price: 3.0,
+        price: 8,
       },
     ],
     images: [
@@ -101,17 +101,17 @@ export const cookies: Cookie[] = [
       {
         id: 1,
         grams: 40,
-        price: 1.0,
+        price: 2.7,
       },
       {
         id: 2,
         grams: 80,
-        price: 2.0,
+        price: 5.5,
       },
       {
         id: 3,
         grams: 120,
-        price: 3.0,
+        price: 8,
       },
     ],
     images: [
@@ -128,22 +128,50 @@ export const cookies: Cookie[] = [
       {
         id: 1,
         grams: 40,
-        price: 1.0,
+        price: 3.5,
       },
       {
         id: 2,
         grams: 80,
-        price: 2.0,
+        price: 7,
       },
       {
         id: 3,
         grams: 120,
-        price: 3.0,
+        price: 10,
       },
     ],
     images: [
       "/images/cookies/transparent/ninho-com-nutella.png",
       "/images/cookies/transparent/ninho-com-nutella-aberto.png",
+    ],
+  },
+
+  {
+    id: 6,
+    name: "CHURROS",
+    description:
+      "A massa perfeita, recheio de doce de leite e aquele toque de canela que só um cookie de churros tem.",
+    weight: [
+      {
+        id: 1,
+        grams: 40,
+        price: 3,
+      },
+      {
+        id: 2,
+        grams: 80,
+        price: 6,
+      },
+      {
+        id: 3,
+        grams: 120,
+        price: 9,
+      },
+    ],
+    images: [
+      "/images/cookies/transparent/oreo.png",
+      "/images/cookies/transparent/oreo-aberto.png",
     ],
   },
 ];

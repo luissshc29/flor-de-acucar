@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "../shadcn/components/ui/button";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import {
   Carousel,
   CarouselContent,
@@ -24,21 +24,21 @@ const carouselScreens = [
   {
     id: 1,
     text: "É TANTA DELÍCIA QUE NÃO DÁ PRA DIVIDIR!",
-    image: "/images/background/welcome/welcome-1.jpg",
+    image: "/images/background/welcome/welcome-6.jpg",
     alt: "Welcome section background image 1",
     animation: "lines",
   },
   {
     id: 2,
     text: "COOKIES GIGANTES, SABOR ABSURDO!",
-    image: "/images/background/welcome/welcome-5.jpg",
+    image: "/images/background/welcome/welcome-3.jpg",
     alt: "Welcome section background image 2",
     animation: "lines",
   },
   {
     id: 3,
     text: "RECHEIO DE VERDADE. SABOR QUE VICIA!",
-    image: "/images/background/welcome/welcome-3.jpg",
+    image: "/images/background/welcome/welcome-5.jpg",
     alt: "Welcome section background image 3",
     animation: "lines",
   },
@@ -192,6 +192,20 @@ export default function Welcome() {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+      <button
+        className="right-4 bottom-4 fixed flex justify-center items-center bg-background-soft shadow-primary-deep shadow-sm rounded-full w-8 h-8 text-primary-dark text-xl transition-all duration-500 hover:cursor-pointer"
+        style={{
+          opacity: inView ? 0 : 1,
+        }}
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }
+      >
+        <IoIosArrowUp />
+      </button>
     </div>
   );
 }

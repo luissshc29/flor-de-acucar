@@ -55,14 +55,14 @@ export default function Header({ inView }: { inView: boolean }) {
           alt="Logo Text"
           width={770}
           height={316}
-          className="w-3/4"
+          className="w-3/4 mix-blend-exclusion"
         />
         <Image
           src="/images/logo/flower.png"
           alt="Logo flower"
           width={500}
           height={500}
-          className="w-1/4"
+          className="w-1/4 mix-blend-exclusion"
         />
       </Link> */}
       <Link
@@ -70,10 +70,24 @@ export default function Header({ inView }: { inView: boolean }) {
         className="flex items-center opacity-0 w-fit animate-content-up delay-300"
       >
         <div className="w-fit text-center">
-          <h1 className="font-logo-primary font-bold text-primary-deep text-4xl lg:text-6xl whitespace-nowrap mix-blend-plus-lighter">
+          <h1
+            className="font-logo-primary font-bold text-primary-deep text-4xl lg:text-6xl whitespace-nowrap"
+            style={{
+              color: isFixed
+                ? "var(--color-primary-deep)"
+                : "var(--color-background)",
+            }}
+          >
             Flor de Açúcar
           </h1>
-          <h2 className="font-logo-secondary font-bold text-[10px] text-secondary-dark lg:text-sm whitespace-nowrap mix-blend-plus-lighter">
+          <h2
+            className="font-logo-secondary font-bold text-[10px] text-secondary-dark lg:text-sm tracking-[.02em] whitespace-nowrap"
+            style={{
+              color: isFixed
+                ? "var(--color-secondary-dark)"
+                : "var(--color-secondary-light)",
+            }}
+          >
             COOKIES ARTESANAIS
           </h2>
         </div>
@@ -82,14 +96,21 @@ export default function Header({ inView }: { inView: boolean }) {
           alt="Logo flower"
           width={500}
           height={500}
-          className="w-[50px] md:w-[80px]"
+          className="w-[50px] md:w-[80px] mix-blend-darken"
         />
       </Link>
-      <Navigation className="w-fit" />
+      <Navigation className="w-fit" isFixed={isFixed} />
       <a
         href="/"
         target="_blank"
-        className="flex justify-center items-center hover:bg-primary-deep opacity-0 rounded-full w-12 h-12 text-primary-deep hover:text-background text-2xl [transition-duration:400ms] [animation:content-up_1s_ease-in-out_1000ms_forwards]"
+        className={`flex justify-center items-center hover:bg-primary-deep opacity-0 rounded-full w-12 h-12 hover:text-background text-2xl [transition-duration:400ms] [animation:content-up_1s_ease-in-out_1000ms_forwards] ${
+          isFixed ? "text-primary-deep" : "text-background"
+        }`}
+        // style={{
+        //   color: isFixed
+        //     ? "var(--color-primary-deep)"
+        //     : "var(--color-background)",
+        // }}
       >
         <RxInstagramLogo />
       </a>

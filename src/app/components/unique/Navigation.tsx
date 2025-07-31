@@ -13,8 +13,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navigation({
   className,
+  isFixed = false,
   ...rest
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: { isFixed: boolean } & React.HTMLAttributes<HTMLDivElement>) {
   const sections = [
     {
       id: "essence",
@@ -47,7 +48,12 @@ export default function Navigation({
                   initial={{ opacity: 0, rotate: -90 }}
                   animate={{ opacity: 1, rotate: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute inset-0 flex justify-center items-center bg-primary-soft/30 shadow-sm backdrop-blur-sm rounded-full hover:cursor-pointer focus:cursor-pointer"
+                  className="absolute inset-0 flex justify-center items-center bg-primary-soft/30 shadow-sm backdrop-blur-lg rounded-full hover:cursor-pointer focus:cursor-pointer"
+                  style={{
+                    color: isFixed
+                      ? "var(--color-primary-deep)"
+                      : "var(--color-background)",
+                  }}
                 >
                   <IoMdClose className="w-6 h-6" />
                 </motion.div>
@@ -58,6 +64,11 @@ export default function Navigation({
                   animate={{ opacity: 1, rotate: 0 }}
                   transition={{ duration: 0.2 }}
                   className="absolute inset-0 flex justify-center items-center hover:cursor-pointer"
+                  style={{
+                    color: isFixed
+                      ? "var(--color-primary-deep)"
+                      : "var(--color-background)",
+                  }}
                 >
                   <IoMdMenu className="w-6 h-6 hover:cursor-pointer" />
                 </motion.div>
@@ -65,17 +76,20 @@ export default function Navigation({
             </AnimatePresence>
           </div>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="bg-primary-soft/30 backdrop-blur-sm border-none rounded-none">
+        <DropdownMenuContent className="bg-primary-soft/50 backdrop-blur-lg border-none rounded-none">
           {sections.map((s, index) => (
             <DropdownMenuItem
               key={s.id}
-              className="focus:bg-primary-soft/30 py-4 rounded-none hover:cursor-pointer"
+              className="focus:bg-primary-soft//50 py-4 rounded-none hover:cursor-pointer"
             >
               <NavigationButton
                 navigateTo={s.navigateTo}
                 className="opacity-0 animate-content-up animation-duration-[500ms]"
                 style={{
                   animationDelay: `${100 * index}ms`,
+                  color: isFixed
+                    ? "var(--color-primary-deep)"
+                    : "var(--color-background)",
                 }}
               >
                 {s.text}
@@ -89,9 +103,14 @@ export default function Navigation({
           <NavigationButton
             key={s.id}
             navigateTo={s.navigateTo}
-            className="opacity-0 animate-content-up"
+            className={`opacity-0 animate-content-up ${
+              isFixed ? "after:border-primary-deep" : "after:border-background"
+            }`}
             style={{
               animationDelay: `${300 * (index + 1)}ms`,
+              color: isFixed
+                ? "var(--color-primary-deep)"
+                : "var(--color-background)",
             }}
           >
             {s.text}

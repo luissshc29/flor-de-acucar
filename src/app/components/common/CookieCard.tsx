@@ -37,31 +37,30 @@ export default function CookieCard({ cookie }: { cookie: Cookie }) {
         <div className="flex items-center gap-2 my-2">
           {cookie.weight.map((w, index, arr) => (
             <Fragment key={w.id}>
-              <div className="flex flex-col justify-center gap-2 mx-auto w-fit">
-                <SpotlightCard
-                  className="bg-transparent px-2 py-1 rounded-xs w-full h-fit text-primary-dark text-xs text-center"
-                  spotlightColor="rgba(239, 202, 169, 1)"
-                >
-                  {w.grams + "g"}
-                </SpotlightCard>
-                <SpotlightCard
-                  className="bg-transparent px-2 py-1 rounded-xs w-full h-fit text-primary-dark text-xs"
-                  spotlightColor="rgba(239, 202, 169, 1)"
-                >
-                  {"R$" + String(w.price.toFixed(2)).replaceAll(".", ",")}
-                </SpotlightCard>
-              </div>
+              <SpotlightCard
+                className={`px-0.5 py-0.5 rounded-xs text-primary-dark shadow-transparent text-xs text-center bg-white ${
+                  w.grams === 120 && "highlighted-price-card "
+                }`}
+                spotlightColor="rgba(239, 202, 169, 1)"
+              >
+                <div className="flex flex-col justify-center items-center gap-2 bg-white px-1 py-2">
+                  <p>{w.grams + "g"}</p>
+                  <p>
+                    {"R$" + String(w.price.toFixed(2)).replaceAll(".", ",")}
+                  </p>
+                </div>
+              </SpotlightCard>
               {index < arr.length - 1 && (
                 <Separator
                   orientation="vertical"
-                  className="bg-primary-light w-[1px] data-[orientation=vertical]:h-15"
+                  className="bg-primary-soft w-[1px] data-[orientation=vertical]:h-15"
                 />
               )}
             </Fragment>
           ))}
         </div>
       </div>
-      <div className="py-4 w-4/5 md:w-2/3 lg:1/3">
+      <div className="py-4 w-4/5 md:w-2/3 lg:w-1/3">
         <Carousel
           className="relative flex justify-center items-center text-center"
           plugins={[
@@ -76,7 +75,7 @@ export default function CookieCard({ cookie }: { cookie: Cookie }) {
             {cookie.images.map((url, index) => (
               <CarouselItem
                 key={index}
-                className="flex justify-center items-center"
+                className="flex justify-center items-center w-fit"
               >
                 <Image
                   src={url}
