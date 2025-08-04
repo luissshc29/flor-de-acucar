@@ -74,6 +74,7 @@
   --animate-show-up: show-up 1.5s 1 forwards;
   --animate-content-up: content-up 1s ease-in-out forwards;
   --animate-content-down: content-down 1s ease-in-out forwards;
+  --animate-gradient: gradient linear infinite;
 }
 
 :root {
@@ -155,6 +156,14 @@ html {
   overflow-x: hidden;
   scrollbar-gutter: stable;
   background: transparent;
+}
+
+body {
+  background-color: var(--color-just-black);
+  overscroll-behavior: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 * {
@@ -281,6 +290,20 @@ html {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
 

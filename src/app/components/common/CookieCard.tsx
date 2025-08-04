@@ -11,6 +11,7 @@ import Image from "next/image";
 import React, { Fragment } from "react";
 import SpotlightCard from "./SpotlightCard";
 import { Separator } from "@/app/shadcn/components/ui/separator";
+import GradientText from "./GradientText";
 
 export default function CookieCard({ cookie }: { cookie: Cookie }) {
   return (
@@ -27,9 +28,16 @@ export default function CookieCard({ cookie }: { cookie: Cookie }) {
             : "md:text-left md:items-start"
         }`}
       >
-        <h2 className="my-4 md:w-full lg:w-4/5 font-title font-extrabold text-primary-deep text-2xl md:text-4xl">
+        <GradientText
+          colors={["#562f10", "#562f10", "#ac6120", "#562f10", "#562f10"]}
+          animationSpeed={12}
+          showBorder={false}
+          className={`m-auto ${
+            cookie.id % 2 === 0 ? "md:ml-auto md:mr-0" : "md:ml-0 md:mr-auto"
+          }`}
+        >
           {cookie.name}
-        </h2>
+        </GradientText>
 
         <p className="md:w-full lg:w-4/5 text-neutral-700 text-sm">
           {cookie.description}

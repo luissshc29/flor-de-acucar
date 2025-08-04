@@ -108,6 +108,7 @@ export default function Welcome() {
       style={
         headerIsFixed ? {} : { position: "relative", willChange: "contents" }
       }
+      ref={ref}
     >
       <Header inView={inView} />
       <Carousel
@@ -122,7 +123,6 @@ export default function Welcome() {
         ]}
         opts={{ loop: true }}
         setApi={setEmblaApi}
-        ref={ref}
       >
         <CarouselContent>
           {carouselScreens.map((s) => (
