@@ -100,6 +100,15 @@ export default function Navigation({
                     ? "var(--color-primary-deep)"
                     : "var(--color-background)",
                 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setTimeout(() => {
+                    const el = document.getElementById(s.navigateTo);
+                    el?.scrollIntoView({ block: "start", behavior: "smooth" });
+                    if (window)
+                      window.history.pushState(null, "", `#${s.navigateTo}`);
+                  }, 100);
+                }}
               >
                 {s.text}
               </NavigationButton>
@@ -124,7 +133,7 @@ export default function Navigation({
                 : "var(--color-background)",
             }}
             onClick={(e) => {
-              // e.preventDefault();
+              e.preventDefault();
               setTimeout(() => {
                 const el = document.getElementById(s.navigateTo);
                 el?.scrollIntoView({ block: "start", behavior: "smooth" });
