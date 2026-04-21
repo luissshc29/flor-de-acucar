@@ -12,6 +12,7 @@ import React, { Fragment } from "react";
 import SpotlightCard from "./SpotlightCard";
 import { Separator } from "@/app/shadcn/components/ui/separator";
 import GradientText from "./GradientText";
+import { GiWeight } from "react-icons/gi";
 
 export default function CookieCard({ cookie }: { cookie: Cookie }) {
   return (
@@ -47,13 +48,16 @@ export default function CookieCard({ cookie }: { cookie: Cookie }) {
             <Fragment key={w.id}>
               <SpotlightCard
                 className={`px-0.5 py-0.5 rounded-xs text-primary-dark shadow-transparent text-xs text-center bg-white ${
-                  w.grams === 120 && "highlighted-price-card "
+                  w.highlight && "highlighted-price-card "
                 }`}
                 spotlightColor="rgba(239, 202, 169, 1)"
               >
                 <div className="flex flex-col justify-center items-center gap-2 bg-white px-1 py-2">
-                  <p>{w.grams + "g"}</p>
-                  <p>
+                  <div className="flex items-center gap-0.5 font-bold">
+                    <GiWeight />
+                    <p>{w.grams + "g"}</p>
+                  </div>
+                  <p className="">
                     {"R$" + String(w.price.toFixed(2)).replaceAll(".", ",")}
                   </p>
                 </div>

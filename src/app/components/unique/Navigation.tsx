@@ -14,8 +14,14 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navigation({
   className,
   isFixed = false,
+  orientation = "horizontal",
+  switchToDropdown = true,
   ...rest
-}: { isFixed: boolean } & React.HTMLAttributes<HTMLDivElement>) {
+}: {
+  isFixed: boolean;
+  orientation?: "horizontal" | "vertical";
+  switchToDropdown?: boolean;
+} & React.HTMLAttributes<HTMLDivElement>) {
   const sections = [
     {
       id: "essence",
@@ -38,8 +44,11 @@ export default function Navigation({
 
   return (
     <div id="navigation" className={className} {...rest}>
-      <DropdownMenu onOpenChange={(e) => setIsDropdownOpen(e)}>
-        <DropdownMenuTrigger className="min-[800px]:hidden flex justify-center items-center hover:bg-primary-deep opacity-0 border-0 rounded-full w-12 h-12 text-primary-deep hover:text-background text-2xl animate-content-up transition-all ease-in-out hover:cursor-pointer [transition-duration:400ms]">
+      <DropdownMenu onOpenChange={(e) => setIsDropdownOpen(e)} modal={false}>
+        <DropdownMenuTrigger
+          hidden={!switchToDropdown}
+          className={`pointer-events-auto min-[800px]:hidden flex justify-center items-center hover:bg-primary-deep opacity-0 border-0 rounded-full w-12 h-12 text-primary-deep hover:text-background text-2xl animate-content-up transition-all ease-in-out hover:cursor-pointer [transition-duration:400ms]`}
+        >
           <div className="">
             <AnimatePresence mode="wait" initial={false}>
               {isDropdownOpen ? (
@@ -70,7 +79,7 @@ export default function Navigation({
                       : "var(--color-background)",
                   }}
                 >
-                  <IoMdMenu className="w-6 h-6 hover:cursor-pointer" />
+                  <IoMdMenu className="w-6 h-6 hover:text-background duration-300 hover:cursor-pointer" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -98,7 +107,9 @@ export default function Navigation({
           ))}
         </DropdownMenuContent>
       </DropdownMenu>
-      <div className="hidden min-[800px]:flex justify-center items-center gap-2">
+      <div
+        className={`${switchToDropdown ? "hidden min-[800px]:flex" : "flex"} ${orientation === "horizontal" ? "" : "flex-col"} justify-center items-center gap-2`}
+      >
         {sections.map((s, index) => (
           <NavigationButton
             key={s.id}
@@ -111,6 +122,15 @@ export default function Navigation({
               color: isFixed
                 ? "var(--color-primary-deep)"
                 : "var(--color-background)",
+            }}
+            onClick={(e) => {
+              // e.preventDefault();
+              setTimeout(() => {
+                const el = document.getElementById(s.navigateTo);
+                el?.scrollIntoView({ block: "start", behavior: "smooth" });
+                if (window)
+                  window.history.pushState(null, "", `#${s.navigateTo}`);
+              }, 100);
             }}
           >
             {s.text}

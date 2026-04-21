@@ -99,9 +99,14 @@ export default function Header({ inView }: { inView: boolean }) {
           className="w-[50px] md:w-[80px] mix-blend-darken"
         />
       </Link>
-      <Navigation className="w-fit" isFixed={isFixed} />
+      <Navigation
+        className="w-fit"
+        isFixed={isFixed}
+        orientation="horizontal"
+        switchToDropdown={true}
+      />
       <a
-        href="/"
+        href="https://www.instagram.com/flordeacucar.cookies?igsh=MWt3NzZ5MzNyMWMwMw%3D%3D&utm_source=qr"
         target="_blank"
         className={`flex justify-center items-center hover:bg-primary-deep opacity-0 rounded-full w-12 h-12 hover:text-background text-2xl [transition-duration:400ms] [animation:content-up_1s_ease-in-out_1000ms_forwards] ${
           isFixed ? "text-primary-deep" : "text-background"

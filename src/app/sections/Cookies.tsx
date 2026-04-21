@@ -10,19 +10,21 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 export default function Cookies() {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    cookies.forEach((c) => {
-      gsap.to(`#cookie-card-${c.id}`, {
-        opacity: 1,
-        y: 0,
-        scrollTrigger: {
-          trigger: `#cookie-card-${c.id}`,
-          // markers: true,
-          start: "top 70%",
-          end: "bottom 80%",
-          scrub: true,
-        },
+    cookies
+      .filter((c) => c.active)
+      .forEach((c) => {
+        gsap.to(`#cookie-card-${c.id}`, {
+          opacity: 1,
+          y: 0,
+          scrollTrigger: {
+            trigger: `#cookie-card-${c.id}`,
+            // markers: true,
+            start: "top 70%",
+            end: "bottom 80%",
+            scrub: true,
+          },
+        });
       });
-    });
 
     gsap.to("#cookies-section-p-1", {
       opacity: 1,
@@ -73,12 +75,12 @@ export default function Cookies() {
     });
 
     return () => {
-      gsap.killTweensOf("#essence-section");
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
   return (
-    <div className="p-8 w-screen min-h-[100vh]" id="cookies">
+    <div className="p-8 w-screen min-h-[100dvh]" id="cookies">
       <div className="flex flex-col justify-center items-center gap-12 mx-auto">
         <div
           id="cookies-section-text-container"
@@ -113,9 +115,11 @@ export default function Cookies() {
         />
 
         <div className="flex flex-col justify-center items-center gap-12 w-4/5">
-          {cookies.map((c) => (
-            <CookieCard key={c.id} cookie={c} />
-          ))}
+          {cookies
+            .filter((c) => c.active)
+            .map((c) => (
+              <CookieCard key={c.id} cookie={c} />
+            ))}
         </div>
       </div>
     </div>

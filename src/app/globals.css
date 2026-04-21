@@ -160,7 +160,6 @@ html {
 
 body {
   background-color: var(--color-just-black);
-  overscroll-behavior: none;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -216,7 +215,7 @@ body {
   width: 100%;
 }
 
-.nav-button:hover svg {
+.nav-button:hover .button-arrow {
   transform: translateX(10px);
 }
 

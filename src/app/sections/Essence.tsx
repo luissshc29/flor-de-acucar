@@ -81,14 +81,14 @@ export default function Essence() {
     });
 
     return () => {
-      gsap.killTweensOf("#essence-section-logo-image");
+      ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, []);
 
   return (
     <div
       id="essence"
-      className="flex lg:flex-row flex-col items-center gap-y-8 p-8 w-screen min-h-[100vh]"
+      className="flex lg:flex-row flex-col items-center gap-y-8 p-8 w-screen min-h-[100dvh]"
     >
       <div className="w-full lg:w-1/2">
         <div

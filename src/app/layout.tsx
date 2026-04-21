@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Inter } from "next/font/google";
 import "./globals.css";
+import { TooltipProvider } from "./shadcn/components/ui/tooltip";
 
 const montserrat = Montserrat({
   variable: "--font-geist-sans",
@@ -43,7 +44,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/logo/favicon.ico" />
       </head>
       <body className={`${montserrat.variable} ${inter.variable} antialiased`}>
-        {children}
+        <TooltipProvider>{children}</TooltipProvider>
       </body>
     </html>
   );
