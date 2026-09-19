@@ -160,7 +160,7 @@ export const cookies: Cookie[] = [
   },
   {
     id: 6,
-    active: false,
+    active: true,
     name: "CHURROS",
     description:
       "A massa perfeita, recheio de doce de leite e aquele toque de canela que só um cookie de churros tem.",
