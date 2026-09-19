@@ -24,7 +24,7 @@ const carouselScreens = [
   {
     id: 1,
     text: "É TANTA DELÍCIA QUE NÃO DÁ PRA DIVIDIR!",
-    image: "/images/background/welcome/welcome-6.jpg",
+    image: "/images/background/welcome/welcome-7.png",
     alt: "Welcome section background image 1",
     animation: "lines",
   },
@@ -71,7 +71,7 @@ export default function Welcome() {
         stagger: 0.02,
         duration: 1,
         ease: "power4.out",
-      }
+      },
     );
 
     // cleanup

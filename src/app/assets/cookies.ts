@@ -38,8 +38,8 @@ export const cookies: Cookie[] = [
       },
     ],
     images: [
-      "/images/cookies/transparent/oreo.png",
-      "/images/cookies/transparent/oreo-aberto.png",
+      "/images/cookies/transparent/proshots/oreo.png",
+      "/images/cookies/transparent/proshots/oreo-aberto.png",
     ],
   },
   {
@@ -67,8 +67,8 @@ export const cookies: Cookie[] = [
       },
     ],
     images: [
-      "/images/cookies/transparent/redvelvet.png",
-      "/images/cookies/transparent/redvelvet-aberto.png",
+      "/images/cookies/transparent/proshots/redvelvet.png",
+      "/images/cookies/transparent/proshots/redvelvet-aberto.png",
     ],
   },
   {
@@ -96,8 +96,8 @@ export const cookies: Cookie[] = [
       },
     ],
     images: [
-      "/images/cookies/transparent/brigadeiro-ao-leite.png",
-      "/images/cookies/transparent/brigadeiro-ao-leite-aberto.png",
+      "/images/cookies/transparent/proshots/brigadeiro-ao-leite.png",
+      "/images/cookies/transparent/proshots/brigadeiro-ao-leite-aberto.png",
     ],
   },
   {
@@ -125,8 +125,8 @@ export const cookies: Cookie[] = [
       },
     ],
     images: [
-      "/images/cookies/transparent/meio-amargo.png",
-      "/images/cookies/transparent/meio-amargo-aberto.png",
+      "/images/cookies/transparent/proshots/meio-amargo.png",
+      "/images/cookies/transparent/proshots/meio-amargo-aberto.png",
     ],
   },
   {
@@ -154,11 +154,10 @@ export const cookies: Cookie[] = [
       },
     ],
     images: [
-      "/images/cookies/transparent/ninho-com-nutella.png",
-      "/images/cookies/transparent/ninho-com-nutella-aberto.png",
+      "/images/cookies/transparent/proshots/ninho-com-nutella.png",
+      "/images/cookies/transparent/proshots/ninho-com-nutella-aberto.png",
     ],
   },
-
   {
     id: 6,
     active: false,
@@ -184,8 +183,8 @@ export const cookies: Cookie[] = [
       },
     ],
     images: [
-      "/images/cookies/transparent/oreo.png",
-      "/images/cookies/transparent/oreo-aberto.png",
+      "/images/cookies/transparent/proshots/churros.png",
+      "/images/cookies/transparent/proshots/churros-aberto.png",
     ],
   },
 ];
