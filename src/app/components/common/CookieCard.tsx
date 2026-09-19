@@ -89,13 +89,13 @@ export default function CookieCard({ cookie }: { cookie: Cookie }) {
                 key={index}
                 className="flex justify-center items-center w-fit"
               >
-                <Image
+                <img
                   src={url}
                   alt={cookie.name}
                   width={350}
                   height={350}
                   className="object-center object-cover"
-                  priority
+                  // priority
                 />
               </CarouselItem>
             ))}
