@@ -154,7 +154,7 @@ export const cookies: Cookie[] = [
       },
     ],
     images: [
-      "/images/cookies/transparent/proshots/ninho-com-nutella.PNG",
+      "/images/cookies/transparent/proshots/ninho-com-nutella-2.PNG",
       "/images/cookies/transparent/proshots/ninho-com-nutella-aberto.PNG",
     ],
   },
