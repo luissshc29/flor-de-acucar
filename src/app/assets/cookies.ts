@@ -81,17 +81,17 @@ export const cookies: Cookie[] = [
       {
         id: 1,
         grams: 40,
-        price: 3.5,
+        price: 4,
       },
       {
         id: 2,
         grams: 80,
-        price: 7,
+        price: 8,
       },
       {
         id: 3,
         grams: 120,
-        price: 9,
+        price: 11,
         highlight: true,
       },
     ],
@@ -110,17 +110,17 @@ export const cookies: Cookie[] = [
       {
         id: 1,
         grams: 40,
-        price: 3.5,
+        price: 4,
       },
       {
         id: 2,
         grams: 80,
-        price: 7,
+        price: 8,
       },
       {
         id: 3,
         grams: 120,
-        price: 9,
+        price: 11,
         highlight: true,
       },
     ],
@@ -168,17 +168,17 @@ export const cookies: Cookie[] = [
       {
         id: 1,
         grams: 40,
-        price: 3.5,
+        price: 4,
       },
       {
         id: 2,
         grams: 80,
-        price: 7,
+        price: 8,
       },
       {
         id: 3,
         grams: 120,
-        price: 9,
+        price: 11,
         highlight: true,
       },
     ],
